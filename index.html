@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lawslane: Tech Stack & Cost Intelligence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.2);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        .neon-text {
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+        }
+
+        .flow-arrow::after {
+            content: '▼';
+            display: block;
+            text-align: center;
+            color: #94a3b8;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .flow-arrow-md::after {
+                content: '▶';
+                display: inline-block;
+                margin: 0 1rem;
+                transform: none;
+            }
+        }
+
+        /* Special highlight for the important section */
+        .highlight-section {
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(16, 185, 129, 0.05) 50%, rgba(15, 23, 42, 0) 100%);
+            border-top: 1px solid rgba(16, 185, 129, 0.1);
+            border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+        }
+    </style>
+    <!-- 
+        Palette: Cyber-Legal Neon
+        Background: #0f172a (Slate 900)
+        Card: #1e293b (Slate 800)
+        Text: #f1f5f9 (Slate 100)
+        Accent 1: #38bdf8 (Sky 400 - Core)
+        Accent 2: #c084fc (Purple 400 - AI)
+        Accent 3: #34d399 (Emerald 400 - Cost/Success)
+     -->
+    <!-- CONFIRMATION: NEITHER Mermaid JS NOR SVG were used anywhere in the output. -->
+</head>
+
+<body class="overflow-x-hidden">
+
+    <!-- Hero Section -->
+    <header class="relative w-full py-20 px-6 text-center overflow-hidden">
+        <div
+            class="absolute inset-0 z-0 opacity-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400 via-slate-900 to-slate-900">
+        </div>
+        <div class="relative z-10 max-w-4xl mx-auto">
+            <h1
+                class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-purple-400 neon-text">
+                LAWSLANE
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-300 font-light tracking-wide">
+                Tech Stack & Cost Intelligence
+            </p>
+            <div
+                class="mt-8 inline-block px-6 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 font-semibold text-sm tracking-wider uppercase">
+                Smart Legal Solutions Powered by Advanced AI
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 pb-20">
+
+        <!-- Section 1: Core Architecture -->
+        <section>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">The Engine Room 🛠️</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    A modern, type-safe, and high-performance foundation ensures Lawslane runs smoothly. We leverage the
+                    latest in Edge computing and serverless technology.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Core -->
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-sky-500/20 flex items-center justify-center text-2xl">⚛️
+                        </div>
+                        <h3 class="text-xl font-bold text-sky-400">Core Framework</h3>
+                    </div>
+                    <ul class="space-y-3 text-slate-300">
+                        <li class="flex items-start"><span class="text-sky-500 mr-2">▸</span>Next.js 15 (App Router)
+                        </li>
+                        <li class="flex items-start"><span class="text-sky-500 mr-2">▸</span>TypeScript</li>
+                        <li class="flex items-start"><span class="text-sky-500 mr-2">▸</span>Node.js & Edge Runtime</li>
+                    </ul>
+                </div>
+
+                <!-- Backend -->
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-orange-500/20 flex items-center justify-center text-2xl">🗄️
+                        </div>
+                        <h3 class="text-xl font-bold text-orange-400">Backend & Data</h3>
+                    </div>
+                    <ul class="space-y-3 text-slate-300">
+                        <li class="flex items-start"><span class="text-orange-500 mr-2">▸</span>Firebase Firestore
+                            (NoSQL)</li>
+                        <li class="flex items-start"><span class="text-orange-500 mr-2">▸</span>Firebase Auth</li>
+                        <li class="flex items-start"><span class="text-orange-500 mr-2">▸</span>Storage (Firebase + AWS
+                            R2)</li>
+                    </ul>
+                </div>
+
+                <!-- UI/UX -->
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-pink-500/20 flex items-center justify-center text-2xl">🎨
+                        </div>
+                        <h3 class="text-xl font-bold text-pink-400">UI & Design</h3>
+                    </div>
+                    <ul class="space-y-3 text-slate-300">
+                        <li class="flex items-start"><span class="text-pink-500 mr-2">▸</span>Tailwind CSS</li>
+                        <li class="flex items-start"><span class="text-pink-500 mr-2">▸</span>Shadcn UI</li>
+                        <li class="flex items-start"><span class="text-pink-500 mr-2">▸</span>Lucide React Icons</li>
+                    </ul>
+                </div>
+
+                <!-- Integrations -->
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-indigo-500/20 flex items-center justify-center text-2xl">🔌
+                        </div>
+                        <h3 class="text-xl font-bold text-indigo-400">Integrations</h3>
+                    </div>
+                    <ul class="space-y-3 text-slate-300">
+                        <li class="flex items-start"><span class="text-indigo-500 mr-2">▸</span>Resend (Email)</li>
+                        <li class="flex items-start"><span class="text-indigo-500 mr-2">▸</span>Cloudflare Turnstile
+                        </li>
+                        <li class="flex items-start"><span class="text-indigo-500 mr-2">▸</span>PromptPay QR</li>
+                    </ul>
+                </div>
+
+                <!-- Infrastructure -->
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-slate-500/20 flex items-center justify-center text-2xl">☁️
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-200">Infrastructure</h3>
+                    </div>
+                    <ul class="space-y-3 text-slate-300">
+                        <li class="flex items-start"><span class="text-slate-400 mr-2">▸</span>Vercel Hosting</li>
+                        <li class="flex items-start"><span class="text-slate-400 mr-2">▸</span>Cloudflare DNS & CDN</li>
+                        <li class="flex items-start"><span class="text-slate-400 mr-2">▸</span>Vectorize (RAG Base)</li>
+                    </ul>
+                </div>
+
+                <!-- AI (Teaser) -->
+                <div
+                    class="glass-card rounded-2xl p-6 bg-gradient-to-br from-purple-900/40 to-slate-800 border-purple-500/30">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center text-2xl">🧠
+                        </div>
+                        <h3 class="text-xl font-bold text-purple-400">The Brains</h3>
+                    </div>
+                    <p class="text-slate-300 text-sm mb-3">Dual-engine AI architecture for maximum precision.</p>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full">Gemini</span>
+                        <span class="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full">Typhoon</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: AI Workflow Visualization -->
+        <section class="relative">
+            <div class="absolute inset-0 bg-purple-600/5 blur-3xl rounded-full -z-10"></div>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">The Neural Architecture 🧠</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    How Lawslane processes legal queries using a hybrid AI approach.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-3xl p-8 md:p-12">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+
+                    <!-- Step 1 -->
+                    <div class="flex flex-col items-center text-center w-full md:w-1/4">
+                        <div
+                            class="w-16 h-16 rounded-full bg-slate-700 flex items-center justify-center text-3xl mb-4 border-2 border-slate-600 shadow-lg">
+                            👤</div>
+                        <h4 class="font-bold text-white">User Query</h4>
+                        <p class="text-xs text-slate-400 mt-2">Legal question or document upload</p>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="text-slate-500 text-2xl flow-arrow md:flow-arrow-md"></div>
+
+                    <!-- Step 2 -->
+                    <div class="flex flex-col items-center text-center w-full md:w-1/4">
+                        <div
+                            class="w-16 h-16 rounded-full bg-indigo-900/50 flex items-center justify-center text-3xl mb-4 border-2 border-indigo-500 shadow-[0_0_15px_rgba(99,102,241,0.5)]">
+                            ⚙️</div>
+                        <h4 class="font-bold text-indigo-300">RAG System</h4>
+                        <p class="text-xs text-slate-400 mt-2">Cloudflare Workers + Vectorize Search</p>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="text-slate-500 text-2xl flow-arrow md:flow-arrow-md"></div>
+
+                    <!-- Step 3: Dual Brain -->
+                    <div class="flex flex-col items-center text-center w-full md:w-1/4 relative">
+                        <div
+                            class="absolute -top-6 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">
+                            Dual Core</div>
+                        <div
+                            class="w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-900 to-fuchsia-900 flex items-center justify-center text-4xl mb-4 border-2 border-purple-400 shadow-[0_0_25px_rgba(192,132,252,0.4)]">
+                            🧠</div>
+                        <div class="flex gap-2 justify-center w-full">
+                            <div class="text-center">
+                                <span class="block text-purple-400 font-bold text-sm">Gemini</span>
+                                <span class="block text-[10px] text-slate-400">Logic Analysis</span>
+                            </div>
+                            <div class="w-px bg-slate-700 h-8"></div>
+                            <div class="text-center">
+                                <span class="block text-purple-400 font-bold text-sm">Typhoon</span>
+                                <span class="block text-[10px] text-slate-400">Thai Language</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="text-slate-500 text-2xl flow-arrow md:flow-arrow-md"></div>
+
+                    <!-- Step 4 -->
+                    <div class="flex flex-col items-center text-center w-full md:w-1/4">
+                        <div
+                            class="w-16 h-16 rounded-full bg-emerald-900/50 flex items-center justify-center text-3xl mb-4 border-2 border-emerald-500 shadow-[0_0_15px_rgba(52,211,153,0.5)]">
+                            ✅</div>
+                        <h4 class="font-bold text-emerald-300">Solution</h4>
+                        <p class="text-xs text-slate-400 mt-2">Accurate, localized legal advice</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Cost Analysis (HIGHLIGHTED) -->
+        <section class="highlight-section py-12 px-4 rounded-3xl -mx-4 md:-mx-8 md:px-8">
+            <div class="text-center mb-12 relative">
+                <span
+                    class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-8 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-[0_0_15px_rgba(16,185,129,0.5)]">Most
+                    Important</span>
+                <h2
+                    class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-sky-400 mb-4">
+                    Financial Intelligence 💰</h2>
+                <p class="text-slate-300 max-w-2xl mx-auto text-lg">
+                    Lawslane utilizes a "Freemium to Scale" model. <br><span
+                        class="text-emerald-400 font-semibold">Start for free</span>, and pay only as you grow.
+                </p>
+            </div>
+
+            <!-- Cost Cards Summary (Prominent) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <!-- MVP Card (Active) -->
+                <div
+                    class="relative p-8 rounded-2xl border-2 border-emerald-500 bg-gradient-to-b from-emerald-900/40 to-slate-900 shadow-[0_0_30px_rgba(16,185,129,0.2)] transform hover:scale-105 transition-all duration-300">
+                    <div
+                        class="absolute -top-4 right-4 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                        CURRENT STAGE</div>
+                    <div class="text-emerald-400 font-bold text-xl mb-4 uppercase tracking-wider">MVP Phase</div>
+                    <div class="text-6xl font-black text-white mb-2">0 <span
+                            class="text-xl font-normal text-slate-400">THB</span></div>
+                    <div class="text-sm text-emerald-200/70 mb-4 font-mono">PER MONTH</div>
+                    <p class="text-slate-300">
+                        <span class="text-emerald-400">✓</span> Free Hosting<br>
+                        <span class="text-emerald-400">✓</span> Free Database<br>
+                        <span class="text-emerald-400">✓</span> Free AI Credits
+                    </p>
+                </div>
+
+                <!-- Growth Card -->
+                <div
+                    class="p-8 rounded-2xl border border-sky-500/30 bg-gradient-to-b from-sky-900/20 to-slate-900 hover:border-sky-500/80 transition-all duration-300">
+                    <div class="text-sky-400 font-bold text-xl mb-4 uppercase tracking-wider">Growth Phase</div>
+                    <div class="text-5xl font-black text-white mb-2">~2k <span
+                            class="text-xl font-normal text-slate-400">THB</span></div>
+                    <div class="text-sm text-sky-200/70 mb-4 font-mono">PER MONTH</div>
+                    <p class="text-slate-400 text-sm">
+                        Pay-as-you-go cost when scaling to <strong>100+ active users</strong>. Primarily covering
+                        Firebase & AI Token usage.
+                    </p>
+                </div>
+
+                <!-- Enterprise Card -->
+                <div
+                    class="p-8 rounded-2xl border border-pink-500/30 bg-gradient-to-b from-pink-900/20 to-slate-900 hover:border-pink-500/80 transition-all duration-300">
+                    <div class="text-pink-400 font-bold text-xl mb-4 uppercase tracking-wider">Enterprise</div>
+                    <div class="text-5xl font-black text-white mb-2">Custom</div>
+                    <div class="text-sm text-pink-200/70 mb-4 font-mono">CONTACT US</div>
+                    <p class="text-slate-400 text-sm">
+                        Unlocks advanced security, dedicated support, and Pro tiers for Vercel/Resend for large teams.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Charts Row -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+
+                <!-- Chart 1: Cost Comparison -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col">
+                    <h3 class="text-xl font-bold text-slate-200 mb-2">Cost Evolution</h3>
+                    <p class="text-sm text-slate-400 mb-6 h-10">Starting a project is virtually cost-free. Expenses
+                        scale linearly with user base growth.</p>
+
+                    <div class="chart-container">
+                        <canvas id="costComparisonChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Chart 2: Budget Breakdown -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col">
+                    <h3 class="text-xl font-bold text-slate-200 mb-2">Where the Money Goes</h3>
+                    <p class="text-sm text-slate-400 mb-6 h-10">In the Growth Phase, budget is primarily allocated to AI
+                        processing power.</p>
+
+                    <div class="chart-container">
+                        <canvas id="costBreakdownChart"></canvas>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center pt-12 border-t border-slate-800">
+            <p class="text-slate-500 text-sm">
+                Lawslane.com<br>
+                Based on 2025 Tech Stack & Cost Estimation Data.
+            </p>
+        </footer>
+
+    </main>
+
+    <script>
+        // --- Utilities ---
+
+        // Label Wrapping Logic (16 chars)
+        function wrapLabel(label) {
+            if (typeof label !== 'string' || label.length <= 16) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                if ((currentLine + " " + words[i]).length <= 16) {
+                    currentLine += " " + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        // Process Labels Helper
+        function processLabels(labels) {
+            return labels.map(l => wrapLabel(l));
+        }
+
+        // Common Tooltip Configuration
+        const commonTooltipOptions = {
+            callbacks: {
+                title: function (tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        // --- Chart 1: Cost Comparison (Bar) ---
+        const ctxComparison = document.getElementById('costComparisonChart').getContext('2d');
+        const rawLabelsComparison = ['MVP Launch Phase', 'Growth Phase (Min)', 'Growth Phase (Max)'];
+
+        new Chart(ctxComparison, {
+            type: 'bar',
+            data: {
+                labels: processLabels(rawLabelsComparison),
+                datasets: [{
+                    label: 'Est. Monthly Cost (THB)',
+                    data: [42, 1000, 3000], // 42 is roughly 500THB/12months for domain
+                    backgroundColor: [
+                        'rgba(52, 211, 153, 0.8)', // Emerald - More Opaque
+                        'rgba(56, 189, 248, 0.6)', // Sky
+                        'rgba(244, 114, 182, 0.6)'  // Pink
+                    ],
+                    borderColor: [
+                        'rgba(52, 211, 153, 1)',
+                        'rgba(56, 189, 248, 1)',
+                        'rgba(244, 114, 182, 1)'
+                    ],
+                    borderWidth: 2,
+                    barPercentage: 0.6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: commonTooltipOptions,
+                    title: {
+                        display: true,
+                        text: 'Monthly Operating Costs (THB)',
+                        color: '#94a3b8',
+                        font: { size: 14, family: "'Outfit', sans-serif" }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: 'rgba(148, 163, 184, 0.1)' },
+                        ticks: { color: '#94a3b8' }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#e2e8f0', font: { size: 11 } }
+                    }
+                }
+            }
+        });
+
+        // --- Chart 2: Cost Breakdown (Doughnut) ---
+        // Based on roughly 2000 THB Scale Estimate
+        // AI: ~1200, Firebase: ~600, Domain/Misc: ~200
+        const ctxBreakdown = document.getElementById('costBreakdownChart').getContext('2d');
+        const rawLabelsBreakdown = ['AI Intelligence (Gemini/Typhoon)', 'Database & Auth (Firebase)', 'Fixed Infra (Domain/DNS)'];
+
+        new Chart(ctxBreakdown, {
+            type: 'doughnut',
+            data: {
+                labels: processLabels(rawLabelsBreakdown),
+                datasets: [{
+                    data: [60, 30, 10],
+                    backgroundColor: [
+                        'rgba(192, 132, 252, 0.8)', // Purple for AI
+                        'rgba(249, 115, 22, 0.8)',  // Orange for DB
+                        'rgba(148, 163, 184, 0.8)'  // Slate for Infra
+                    ],
+                    borderColor: '#1e293b',
+                    borderWidth: 2,
+                    hoverOffset: 10
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { color: '#cbd5e1', padding: 20, font: { family: "'Outfit', sans-serif" } }
+                    },
+                    tooltip: commonTooltipOptions,
+                    title: {
+                        display: false
+                    }
+                },
+                cutout: '65%'
+            }
+        });
+
+    </script>
+</body>
+
+</html>
